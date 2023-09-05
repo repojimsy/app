@@ -1,0 +1,11 @@
+asgiref
+Django
+django-crum
+django-widget-tweaks
+Pillow
+pytz
+six
+sqlparse
+pandas
+openpyxl
+django-crispy-forms

@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">
+      <i class="fas fa-search"></i>
+      <b>{{ title }}</b>
+    </h3>
+    <div class="card-tools">
+      <small>Su último acceso al sistema fue el {{ request.user.last_login }}</small>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">  
+      <h1>Lista de Lecturas</h1>
+      <table id="lecturas-table" class="display">
+        <thead>
+          <tr>
+            <th>Medidor</th>
+            <th>Fotografia</th>
+            <th>Fecha de Creación</th>
+            <th>usuario</th>
+            <th>Lectura Actual</th>
+          </tr>
+        </thead>
+        <tbody>          
+          
+          {% for lectura in lecturas %}
+          <tr>
+            <td>{{ lectura.medidor }}</td>
+            <td><img src="{{ lectura.fotografia.url }}" style="width:40px; height:40px"></td>
+            <td>{{ lectura.fecha_lectura }}</td>
+            <td>{{ lectura.usuario }}</td>
+            <td>{{ lectura.valor_lectura }}</td>
+          </tr>          
+          {% endfor %}          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $('#lecturas-table').DataTable() // Inicializa la tabla con DataTables
+  })
+</script>
+{% endblock %}

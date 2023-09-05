@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-search"></i>
+            <b>{{ title }}</b>
+        </h3>
+        <div class="card-tools">
+            <small>Su último acceso al sistema fue el {{ request.user.last_login }}</small>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- <form method="post" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-flat">
+            <i class="class fas fa-save"></i>  Guardar Lectura
+        </button>
+    </div> -->
+        <div class="container-fluid">           
+            <div class="class form-group">
+                <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="form-group row">
+                      <label for="{{ form.medidor.id_for_label }}" class="col-sm-2 col-form-label">Medidor:</label>
+                      <div class="col-sm-10">
+                        {{ form.medidor }}
+                      </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                      <label for="{{ form.fotografia.id_for_label }}" class="col-sm-2 col-form-label">Fotografía:</label>
+                      <div class="col-sm-10">
+                        {{ form.fotografia }}
+                      </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                      <label for="{{ form.usuario.id_for_label }}" class="col-sm-2 col-form-label">Usuario:</label>
+                      <div class="col-sm-10">
+                        {{ form.usuario }}
+                      </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                      <label for="{{ form.valor_lectura.id_for_label }}" class="col-sm-2 col-form-label">Valor de Lectura:</label>
+                      <div class="col-sm-10">
+                        {{ form.valor_lectura }}
+                      </div>
+                    </div>
+                    
+                    <div class="form-group text-left">
+                      <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Lectura</button>
+                    </div>
+                  </form>               
+            </div>
+        </div> 
+    </div>
+</div>  
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-search"></i>
+            <b>{{ title }}</b>
+        </h3>
+        <div class="card-tools">
+            <small>Su último acceso al sistema fue el {{ request.user.last_login }}</small>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <h1>Lista de Usuarios</h1>
+            <table id="lecturas-table" class="display">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                        <th>Direccion</th>
+                        <th>Suministro</th>
+                        <th>N° Serie</th>
+                        <th>Marca</th>
+                        <th>Tarifa</th>
+                        <th>Fases</th>
+                        <th>SED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for medidores in medidor %}
+                    <tr>
+                        <td>{{ medidores.nombres }}</td>
+                        <td>{{ medidores.direccion }}</td>
+                        <td>{{ medidores.suministro }}</td>
+                        <td>{{ medidores.nserie }}</td>
+                        <td>{{ medidores.marcaMedidor }}</td>
+                        <td>{{ medidores.tarifa }}</td>
+                        <td>{{ medidores.fases }}</td>
+                        <td>{{ medidores.sed }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#lecturas-table').DataTable(); // Inicializa la tabla con DataTables
+    });
+</script>
+{% endblock %}

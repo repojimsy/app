@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-search"></i>
+            <b>{{ title }}</b>
+        </h3>
+        <div class="card-tools">
+            <small>Su último acceso al sistema fue el {{ request.user.last_login }}</small>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <h2>Error durante la carga del archivo:</h2>
+            <p>{{ error }}</p>
+        </div>
+    </div>
+</div>  
+{% endblock %}

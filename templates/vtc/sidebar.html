@@ -1,0 +1,73 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="{% url 'erp:dashboard' %}" class="brand-link">
+        <img src="{% static 'img/logo1.png' %}"
+             alt="AdminLTE Logo"
+             class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">GIS - Chavimochic</span>
+    </a>
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ request.user.get_image }}" class="img-circle" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{ request.user.username }}</a>
+            </div>
+        </div>
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <h3><li class="nav-header">Lecturador PECH</li></h3>
+                <li class="nav-item">
+                    <a href="{% url 'crear_lectura' %}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Toma de Lecturas
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'lista_lecturas' %}" class="nav-link">
+                        <i class="nav-icon far fa-copy"></i>
+                        <p>
+                            Lecturas
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'lista_medidores' %}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Usuarios
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'cargar_medidores' %}" class="nav-link">
+                        <i class="nav-icon fas fa-hands-helping"></i>
+                        <p>
+                            Agregar Usuario
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'user_list' %}" class="nav-link">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Usuarios
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'access_users_list' %}" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <p>
+                            Control de Accesos
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
